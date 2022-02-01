@@ -17,12 +17,16 @@ const test = (arrayParam) => {
     //If no debugging functionality is available, this statement has no effect.
     //debugger;
 
-    const testResult = arrayParam.map(item => item.toUpperCase());
-    return testResult;
+    if (Array.isArray(arrayParam)) {
+        const testResult = arrayParam.map(item => item.toUpperCase());
+        return testResult;
+    } else {
+        console.error('Test function only accepts array type of data.');
+    }
 }
 
 console.log(test(['Hello World', 'ffff', 'we are learning error!']));
-//console.log(test(123)); //Uncaught TypeError: arrayParam.map is not a function
+console.log(test(123)); //Uncaught TypeError: arrayParam.map is not a function
 
 //////////////////////////////////////////////////////////////////////
 /*Debugger is a developer tool and below 3 has own debuggers:
